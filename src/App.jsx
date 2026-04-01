@@ -191,6 +191,91 @@ const VOCAB_POOL = {
   ],
 };
 
+// ─── GENDER POOL (nouns only, with article + English) ────────────────────────
+// g: "der" | "die" | "das"
+const GENDER_POOL = [
+  // der (masculine)
+  {de:"Hund",en:"dog",g:"der"},{de:"Mann",en:"man",g:"der"},{de:"Tisch",en:"table",g:"der"},
+  {de:"Stuhl",en:"chair",g:"der"},{de:"Baum",en:"tree",g:"der"},{de:"Brief",en:"letter",g:"der"},
+  {de:"Berg",en:"mountain",g:"der"},{de:"Fluss",en:"river",g:"der"},{de:"Film",en:"movie",g:"der"},
+  {de:"Apfel",en:"apple",g:"der"},{de:"Schlüssel",en:"key",g:"der"},{de:"Spiegel",en:"mirror",g:"der"},
+  {de:"Kuchen",en:"cake",g:"der"},{de:"Wein",en:"wine",g:"der"},{de:"Saft",en:"juice",g:"der"},
+  {de:"Tee",en:"tea",g:"der"},{de:"Käse",en:"cheese",g:"der"},{de:"Rücken",en:"back",g:"der"},
+  {de:"Arm",en:"arm",g:"der"},{de:"Fuß",en:"foot",g:"der"},{de:"Kopf",en:"head",g:"der"},
+  {de:"Mund",en:"mouth",g:"der"},{de:"Bauch",en:"stomach",g:"der"},{de:"Zug",en:"train",g:"der"},
+  {de:"Bus",en:"bus",g:"der"},{de:"Park",en:"park",g:"der"},{de:"Garten",en:"garden",g:"der"},
+  {de:"Laden",en:"shop",g:"der"},{de:"Markt",en:"market",g:"der"},{de:"Monat",en:"month",g:"der"},
+  {de:"Tag",en:"day",g:"der"},{de:"Abend",en:"evening",g:"der"},{de:"Morgen",en:"morning",g:"der"},
+  {de:"Winter",en:"winter",g:"der"},{de:"Sommer",en:"summer",g:"der"},{de:"Frühling",en:"spring",g:"der"},
+  {de:"Herbst",en:"autumn",g:"der"},{de:"Löffel",en:"spoon",g:"der"},{de:"Topf",en:"pot",g:"der"},
+  {de:"Ofen",en:"oven",g:"der"},{de:"Kühlschrank",en:"fridge",g:"der"},{de:"Schrank",en:"cupboard",g:"der"},
+  {de:"Vater",en:"father",g:"der"},{de:"Bruder",en:"brother",g:"der"},{de:"Sohn",en:"son",g:"der"},
+  {de:"Opa",en:"grandpa",g:"der"},{de:"Freund",en:"friend (m)",g:"der"},{de:"Arzt",en:"doctor (m)",g:"der"},
+  {de:"Lehrer",en:"teacher (m)",g:"der"},{de:"Junge",en:"boy",g:"der"},{de:"Wecker",en:"alarm clock",g:"der"},
+  {de:"Computer",en:"computer",g:"der"},{de:"Drucker",en:"printer",g:"der"},{de:"Bildschirm",en:"screen",g:"der"},
+  {de:"Fehler",en:"mistake",g:"der"},{de:"Plan",en:"plan",g:"der"},{de:"Beruf",en:"profession",g:"der"},
+  {de:"Vertrag",en:"contract",g:"der"},{de:"Bericht",en:"report",g:"der"},{de:"Kaffee",en:"coffee",g:"der"},
+  {de:"Regen",en:"rain",g:"der"},{de:"Schnee",en:"snow",g:"der"},{de:"Wind",en:"wind",g:"der"},
+  {de:"Wald",en:"forest",g:"der"},{de:"Mond",en:"moon",g:"der"},{de:"Stern",en:"star",g:"der"},
+  {de:"Sand",en:"sand",g:"der"},{de:"Boden",en:"floor/ground",g:"der"},{de:"Stuhl",en:"chair",g:"der"},
+  {de:"Wert",en:"value",g:"der"},{de:"Ansatz",en:"approach",g:"der"},{de:"Prozess",en:"process",g:"der"},
+  {de:"Rahmen",en:"framework",g:"der"},{de:"Faktor",en:"factor",g:"der"},{de:"Aspekt",en:"aspect",g:"der"},
+  {de:"Fortschritt",en:"progress",g:"der"},{de:"Konflikt",en:"conflict",g:"der"},{de:"Kompromiss",en:"compromise",g:"der"},
+  {de:"Standpunkt",en:"viewpoint",g:"der"},{de:"Wandel",en:"change",g:"der"},{de:"Beitrag",en:"contribution",g:"der"},
+  // die (feminine)
+  {de:"Katze",en:"cat",g:"die"},{de:"Frau",en:"woman",g:"die"},{de:"Tür",en:"door",g:"die"},
+  {de:"Blume",en:"flower",g:"die"},{de:"Straße",en:"street",g:"die"},{de:"Sonne",en:"sun",g:"die"},
+  {de:"Nacht",en:"night",g:"die"},{de:"Zeit",en:"time",g:"die"},{de:"Stadt",en:"city",g:"die"},
+  {de:"Schule",en:"school",g:"die"},{de:"Arbeit",en:"work",g:"die"},{de:"Zeitung",en:"newspaper",g:"die"},
+  {de:"Musik",en:"music",g:"die"},{de:"Hand",en:"hand",g:"die"},{de:"Nase",en:"nose",g:"die"},
+  {de:"Milch",en:"milk",g:"die"},{de:"Butter",en:"butter",g:"die"},{de:"Suppe",en:"soup",g:"die"},
+  {de:"Küche",en:"kitchen",g:"die"},{de:"Lampe",en:"lamp",g:"die"},{de:"Uhr",en:"clock",g:"die"},
+  {de:"Bank",en:"bank",g:"die"},{de:"Post",en:"post office",g:"die"},{de:"Tasse",en:"cup",g:"die"},
+  {de:"Gabel",en:"fork",g:"die"},{de:"Familie",en:"family",g:"die"},{de:"Mutter",en:"mother",g:"die"},
+  {de:"Schwester",en:"sister",g:"die"},{de:"Tochter",en:"daughter",g:"die"},{de:"Oma",en:"grandma",g:"die"},
+  {de:"Freundin",en:"friend (f)",g:"die"},{de:"Ärztin",en:"doctor (f)",g:"die"},{de:"Lehrerin",en:"teacher (f)",g:"die"},
+  {de:"Maus",en:"mouse",g:"die"},{de:"Kuh",en:"cow",g:"die"},{de:"Waschmaschine",en:"washing machine",g:"die"},
+  {de:"Badewanne",en:"bathtub",g:"die"},{de:"Dusche",en:"shower",g:"die"},{de:"Jacke",en:"jacket",g:"die"},
+  {de:"Hose",en:"trousers",g:"die"},{de:"Tasche",en:"bag",g:"die"},{de:"Brille",en:"glasses",g:"die"},
+  {de:"Woche",en:"week",g:"die"},{de:"Stunde",en:"hour",g:"die"},{de:"Minute",en:"minute",g:"die"},
+  {de:"Sprache",en:"language",g:"die"},{de:"Frage",en:"question",g:"die"},{de:"Antwort",en:"answer",g:"die"},
+  {de:"Meinung",en:"opinion",g:"die"},{de:"Reise",en:"journey",g:"die"},{de:"Karte",en:"card/map",g:"die"},
+  {de:"Erde",en:"earth",g:"die"},{de:"Luft",en:"air",g:"die"},{de:"Kraft",en:"strength",g:"die"},
+  {de:"Natur",en:"nature",g:"die"},{de:"Regel",en:"rule",g:"die"},{de:"Rolle",en:"role",g:"die"},
+  {de:"Pflicht",en:"duty",g:"die"},{de:"Freiheit",en:"freedom",g:"die"},{de:"Wahrheit",en:"truth",g:"die"},
+  {de:"Gesellschaft",en:"society",g:"die"},{de:"Wirtschaft",en:"economy",g:"die"},{de:"Politik",en:"politics",g:"die"},
+  {de:"Kritik",en:"criticism",g:"die"},{de:"Analyse",en:"analysis",g:"die"},{de:"Methode",en:"method",g:"die"},
+  {de:"Struktur",en:"structure",g:"die"},{de:"Chance",en:"opportunity",g:"die"},{de:"Umgebung",en:"surroundings",g:"die"},
+  {de:"Beziehung",en:"relationship",g:"die"},{de:"Lösung",en:"solution",g:"die"},{de:"Debatte",en:"debate",g:"die"},
+  {de:"Theorie",en:"theory",g:"die"},{de:"Strategie",en:"strategy",g:"die"},{de:"Perspektive",en:"perspective",g:"die"},
+  // das (neuter)
+  {de:"Kind",en:"child",g:"das"},{de:"Auto",en:"car",g:"das"},{de:"Buch",en:"book",g:"das"},
+  {de:"Haus",en:"house",g:"das"},{de:"Bett",en:"bed",g:"das"},{de:"Fenster",en:"window",g:"das"},
+  {de:"Wasser",en:"water",g:"das"},{de:"Brot",en:"bread",g:"das"},{de:"Ei",en:"egg",g:"das"},
+  {de:"Fleisch",en:"meat",g:"das"},{de:"Obst",en:"fruit",g:"das"},{de:"Gemüse",en:"vegetables",g:"das"},
+  {de:"Öl",en:"oil",g:"das"},{de:"Mehl",en:"flour",g:"das"},{de:"Salz",en:"salt",g:"das"},
+  {de:"Glas",en:"glass",g:"das"},{de:"Messer",en:"knife",g:"das"},{de:"Teller",en:"plate",g:"das"},
+  {de:"Sofa",en:"sofa",g:"das"},{de:"Telefon",en:"phone",g:"das"},{de:"Bier",en:"beer",g:"das"},
+  {de:"Hotel",en:"hotel",g:"das"},{de:"Restaurant",en:"restaurant",g:"das"},{de:"Meer",en:"sea",g:"das"},
+  {de:"Feld",en:"field",g:"das"},{de:"Gras",en:"grass",g:"das"},{de:"Feuer",en:"fire",g:"das"},
+  {de:"Eis",en:"ice",g:"das"},{de:"Jahr",en:"year",g:"das"},{de:"Mädchen",en:"girl",g:"das"},
+  {de:"Baby",en:"baby",g:"das"},{de:"Herz",en:"heart",g:"das"},{de:"Auge",en:"eye",g:"das"},
+  {de:"Ohr",en:"ear",g:"das"},{de:"Bein",en:"leg",g:"das"},{de:"Fahrrad",en:"bicycle",g:"das"},
+  {de:"Schiff",en:"ship",g:"das"},{de:"Zimmer",en:"room",g:"das"},{de:"Gepäck",en:"luggage",g:"das"},
+  {de:"Kleid",en:"dress",g:"das"},{de:"Hemd",en:"shirt",g:"das"},{de:"Internet",en:"internet",g:"das"},
+  {de:"Passwort",en:"password",g:"das"},{de:"Profil",en:"profile",g:"das"},{de:"Thema",en:"topic",g:"das"},
+  {de:"Beispiel",en:"example",g:"das"},{de:"Problem",en:"problem",g:"das"},{de:"Ergebnis",en:"result",g:"das"},
+  {de:"Konzept",en:"concept",g:"das"},{de:"Risiko",en:"risk",g:"das"},{de:"Ziel",en:"goal",g:"das"},
+  {de:"System",en:"system",g:"das"},{de:"Prinzip",en:"principle",g:"das"},{de:"Gesetz",en:"law",g:"das"},
+  {de:"Recht",en:"right/law",g:"das"},{de:"Projekt",en:"project",g:"das"},{de:"Wachstum",en:"growth",g:"das"},
+  {de:"Bewusstsein",en:"awareness",g:"das"},{de:"Verständnis",en:"understanding",g:"das"},{de:"Verhalten",en:"behaviour",g:"das"},
+  {de:"Gleichgewicht",en:"balance",g:"das"},{de:"Merkmal",en:"characteristic",g:"das"},{de:"Ergebnis",en:"result",g:"das"},
+];
+
+const GENDER_COLORS = { der:"#1e40af", die:"#be185d", das:"#166534" };
+const GENDER_BG     = { der:"#eff6ff", die:"#fdf2f8", das:"#f0fdf4" };
+const GENDER_SOFT   = { der:"#bfdbfe", die:"#f5d0fe", das:"#bbf7d0" };
+
 const LEVEL_COLORS = {
   A1: { bg:"#f0fdf4", accent:"#166534", soft:"#bbf7d0", text:"#14532d", badge:"#16a34a" },
   A2: { bg:"#eff6ff", accent:"#1e40af", soft:"#bfdbfe", text:"#1e3a8a", badge:"#2563eb" },
@@ -211,6 +296,228 @@ function buildRound(words) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// GENDER TRAINER
+// ═══════════════════════════════════════════════════════════════════════════════
+const GENDER_TIPS = [
+  { title:"Masculine endings", tip:"Words ending in -er, -en, -el, -ling, -ig are often der. (der Lehrer, der Frühling)" },
+  { title:"Feminine endings",  tip:"Words ending in -ung, -heit, -keit, -schaft, -ion, -tät are almost always die. (die Zeitung, die Freiheit)" },
+  { title:"Neuter endings",    tip:"Words ending in -chen, -lein, -ment, -um are usually das. Also many borrowed words. (das Mädchen, das System)" },
+  { title:"Days & months",     tip:"All days, months and seasons are masculine: der Montag, der Januar, der Sommer." },
+  { title:"Female persons",    tip:"Female people and professions are usually die: die Ärztin, die Lehrerin, die Frau." },
+  { title:"Diminutives",       tip:"Any noun with -chen or -lein is always das, even if the base word is feminine! das Mädchen (from die Magd)." },
+];
+
+function GenderTrainer({ onBack }) {
+  const usedGender = useRef(new Set());
+
+  function getDeck() {
+    let unseen = GENDER_POOL.filter(w => !usedGender.current.has(w.de + w.g));
+    if (unseen.length < 15) { usedGender.current.clear(); unseen = [...GENDER_POOL]; }
+    const picked = shuffle(unseen).slice(0, 20);
+    picked.forEach(w => usedGender.current.add(w.de + w.g));
+    return picked;
+  }
+
+  const [deck, setDeck]           = useState(() => getDeck());
+  const [index, setIndex]         = useState(0);
+  const [queue, setQueue]         = useState(null);
+  const [chosen, setChosen]       = useState(null);   // "der"|"die"|"das"|null
+  const [streak, setStreak]       = useState(0);
+  const [best, setBest]           = useState(0);
+  const [correct, setCorrect]     = useState(0);
+  const [total, setTotal]         = useState(0);
+  const [wrongPool, setWrongPool] = useState([]);
+  const [done, setDone]           = useState(false);
+  const [tipIndex, setTipIndex]   = useState(0);
+  const [showTips, setShowTips]   = useState(false);
+
+  const cards = queue || deck;
+  const card  = cards[index];
+
+  function answer(article) {
+    if (chosen) return;
+    setChosen(article);
+    setTotal(t => t + 1);
+    const isCorrect = article === card.g;
+    const newStreak = isCorrect ? streak + 1 : 0;
+    setStreak(newStreak);
+    if (newStreak > best) setBest(newStreak);
+    if (isCorrect) setCorrect(c => c + 1);
+    else setWrongPool(p => [...p, card]);
+
+    setTimeout(() => {
+      setChosen(null);
+      const next = index + 1;
+      if (next >= cards.length) {
+        const repeats = isCorrect ? wrongPool : [...wrongPool, card];
+        if (repeats.length === 0) { setDone(true); return; }
+        setQueue(shuffle(repeats));
+        setWrongPool([]);
+        setIndex(0);
+      } else {
+        setIndex(next);
+      }
+    }, 900);
+  }
+
+  function restart() {
+    const fresh = getDeck();
+    setDeck(fresh); setIndex(0); setQueue(null);
+    setChosen(null); setStreak(0); setCorrect(0); setTotal(0);
+    setWrongPool([]); setDone(false);
+  }
+
+  if (showTips) {
+    return (
+      <div style={{ ...S.page, background:"#fffbf0" }}>
+        <div style={{ maxWidth:440, margin:"0 auto", padding:"24px 20px" }}>
+          <button onClick={() => setShowTips(false)} style={{ ...S.backBtn, color:"#92400e", marginBottom:16 }}>← Back to game</button>
+          <h2 style={{ fontSize:24, fontWeight:700, color:"#92400e", margin:"0 0 6px" }}>🧠 Gender Tips</h2>
+          <p style={{ fontSize:13, color:"#78350f", marginBottom:20 }}>Patterns that help you guess correctly</p>
+          {GENDER_TIPS.map((t,i) => (
+            <div key={i} style={{ background:"#fff", border:"2px solid #fde68a", borderRadius:12, padding:"14px 16px", marginBottom:10 }}>
+              <div style={{ fontWeight:700, fontSize:14, color:"#92400e", marginBottom:4 }}>💡 {t.title}</div>
+              <div style={{ fontSize:13, color:"#44403c", lineHeight:1.6 }}>{t.tip}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (done) {
+    const pct = total > 0 ? Math.round((correct/total)*100) : 100;
+    return (
+      <div style={{ ...S.page, background:"#fafafa" }}>
+        <div style={S.summaryWrap}>
+          <div style={S.trophyIcon}>🎯</div>
+          <h2 style={{ ...S.summaryTitle, color:"#1e40af" }}>Gender Drill Done!</h2>
+          <p style={{ ...S.summarySub, color:"#374151" }}>All cards mastered</p>
+          <div style={S.statsRow}>
+            {[["Accuracy",pct+"%"],["Correct",correct],["Best streak","🔥"+best]].map(([label,val]) => (
+              <div key={label} style={{ ...S.statBox, borderColor:"#e5e7eb" }}>
+                <span style={{ ...S.statNum, color:"#1e40af" }}>{val}</span>
+                <span style={S.statLabel}>{label}</span>
+              </div>
+            ))}
+          </div>
+          <button onClick={restart} style={{ ...S.btn, background:"#1e40af", marginBottom:12 }}>🔀 New Deck</button>
+          <button onClick={onBack}  style={{ ...S.btnOutline, borderColor:"#1e40af", color:"#1e40af" }}>← Back</button>
+        </div>
+      </div>
+    );
+  }
+
+  const progress = ((index) / cards.length) * 100;
+
+  return (
+    <div style={{ ...S.page, background:"#fafafa" }}>
+      {/* Header */}
+      <div style={S.header}>
+        <button onClick={onBack} style={{ ...S.backBtn, color:"#1e40af" }}>← Back</button>
+        <span style={{ ...S.lvlPill, background:"#1e40af" }}>Gender</span>
+        <span style={{ ...S.roundLabel, color:"#374151" }}>
+          {index+1} / {cards.length} {queue ? "· repeat pass" : ""}
+        </span>
+      </div>
+
+      {/* Progress + streak */}
+      <div style={S.progressOuter}>
+        <div style={{ ...S.progressInner, width:`${progress}%`, background:"#2563eb" }} />
+      </div>
+      <div style={{ display:"flex", justifyContent:"space-between", padding:"2px 18px 0", fontSize:12 }}>
+        <span style={{ color:"#6b7280" }}>{correct}/{total} correct</span>
+        <span style={{ color:"#d97706", fontWeight:700 }}>{streak > 0 ? `🔥 ${streak} streak` : ""}</span>
+      </div>
+
+      {/* Tips button */}
+      <div style={{ textAlign:"right", paddingRight:18, marginBottom:4 }}>
+        <button onClick={() => setShowTips(true)}
+          style={{ background:"#fffbf0", border:"1px solid #fde68a", borderRadius:20, padding:"4px 14px",
+            fontSize:12, color:"#92400e", cursor:"pointer", fontFamily:"Georgia, serif", fontWeight:600 }}>
+          💡 Gender Tips
+        </button>
+      </div>
+
+      {/* Article hint */}
+      <p style={{ textAlign:"center", fontSize:13, color:"#6b7280", fontStyle:"italic", margin:"0 0 8px" }}>
+        Which article does this noun take?
+      </p>
+
+      {/* Word card */}
+      <div style={{ display:"flex", justifyContent:"center", padding:"0 20px 16px" }}>
+        <div style={{
+          width:"100%", maxWidth:380, minHeight:160,
+          background:"#fff", borderRadius:20,
+          border: chosen
+            ? `3px solid ${chosen === card.g ? "#16a34a" : "#dc2626"}`
+            : "2px solid #e5e7eb",
+          display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",
+          gap:8, padding:"24px 20px",
+          boxShadow:"0 4px 20px rgba(0,0,0,0.07)",
+          transition:"border-color 0.2s",
+        }}>
+          {chosen && (
+            <div style={{ fontSize:13, fontWeight:700,
+              color: chosen === card.g ? "#16a34a" : "#dc2626" }}>
+              {chosen === card.g ? "✅ Correct!" : `❌ It's ${card.g}`}
+            </div>
+          )}
+          <div style={{ fontSize:38, fontWeight:700, color:"#111", letterSpacing:"-0.5px" }}>
+            {chosen ? <span style={{ color: GENDER_COLORS[card.g] }}>{card.g} </span> : "___  "}
+            {card.de}
+          </div>
+          <div style={{ fontSize:15, color:"#6b7280" }}>{card.en}</div>
+          {chosen && (
+            <div style={{ fontSize:12, color:"#9ca3af", fontStyle:"italic" }}>
+              Next card in a moment…
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Article buttons */}
+      <div style={{ display:"flex", gap:12, padding:"0 20px", maxWidth:420, margin:"0 auto" }}>
+        {["der","die","das"].map(art => {
+          let bg = GENDER_BG[art];
+          let border = GENDER_SOFT[art];
+          let textColor = GENDER_COLORS[art];
+          if (chosen) {
+            if (art === card.g) { bg="#dcfce7"; border="#16a34a"; textColor="#166534"; }
+            else if (art === chosen) { bg="#fee2e2"; border="#dc2626"; textColor="#991b1b"; }
+          }
+          return (
+            <button key={art} onClick={() => answer(art)} disabled={!!chosen}
+              style={{
+                flex:1, padding:"18px 0", borderRadius:14, border:`2px solid ${border}`,
+                background:bg, color:textColor, fontSize:22, fontWeight:800,
+                cursor: chosen ? "default" : "pointer",
+                fontFamily:"Georgia, serif",
+                transform: chosen && art === card.g ? "scale(1.05)" : "scale(1)",
+                transition:"all 0.15s ease",
+                boxShadow: chosen && art === card.g ? `0 4px 14px ${GENDER_SOFT[art]}` : "none",
+              }}>
+              {art}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Gender colour legend */}
+      <div style={{ display:"flex", justifyContent:"center", gap:20, padding:"16px 0 4px", fontSize:12 }}>
+        {["der","die","das"].map(art => (
+          <span key={art} style={{ color: GENDER_COLORS[art], fontWeight:700 }}>
+            <span style={{ display:"inline-block", width:10, height:10, borderRadius:"50%",
+              background: GENDER_COLORS[art], marginRight:4, verticalAlign:"middle" }} />
+            {art} = {art==="der"?"masculine":art==="die"?"feminine":"neuter"}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // FLASHCARD COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════════
 function FlashcardMode({ level, colors, onBack, usedKeys }) {
@@ -219,8 +526,7 @@ function FlashcardMode({ level, colors, onBack, usedKeys }) {
 
   function getCards() {
     let unseen = pool.filter(w => !used.has("fc_" + w.de));
-    if (unseen.length < 20) { 
-      // reset flashcard tracking only
+    if (unseen.length < 20) {
       pool.forEach(w => used.delete("fc_" + w.de));
       unseen = [...pool];
     }
@@ -232,17 +538,20 @@ function FlashcardMode({ level, colors, onBack, usedKeys }) {
   const [cards, setCards]           = useState(() => getCards());
   const [index, setIndex]           = useState(0);
   const [flipped, setFlipped]       = useState(false);
-  const [showFront, setShowFront]   = useState(true); // de→en or en→de
+  const [direction, setDirection]   = useState("de");
   const [known, setKnown]           = useState([]);
   const [almost, setAlmost]         = useState([]);
   const [nope, setNope]             = useState([]);
-  const [queue, setQueue]           = useState(null); // null = first pass
+  const [queue, setQueue]           = useState(null);
   const [done, setDone]             = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
-  const [direction, setDirection]   = useState("de"); // "de" show German, guess English; "en" vice versa
 
-  const card = queue ? queue[index] : cards[index];
-  const total = queue ? queue.length : cards.length;
+  const card  = (queue || cards)[index];
+  const total = (queue || cards).length;
+  const frontWord = direction === "de" ? card?.de : card?.en;
+  const backWord  = direction === "de" ? card?.en : card?.de;
+  const frontLang = direction === "de" ? "Deutsch" : "English";
+  const backLang  = direction === "de" ? "English" : "Deutsch";
 
   function flip() {
     if (isFlipping) return;
@@ -256,46 +565,26 @@ function FlashcardMode({ level, colors, onBack, usedKeys }) {
     if (result === "know")   setKnown(p => [...p, cur]);
     if (result === "almost") setAlmost(p => [...p, cur]);
     if (result === "nope")   setNope(p => [...p, cur]);
-
     setFlipped(false);
     setTimeout(() => {
       if (nextIndex >= total) {
-        // Build next queue from nope + almost
         const repeat = [...(result === "nope" ? [cur] : []), ...(result === "almost" ? [cur] : [])];
-        const prevNope   = result === "nope"   ? [] : nope;
-        const prevAlmost = result === "almost" ? [] : almost;
-        const repeatAll  = shuffle([...prevNope, ...prevAlmost, ...repeat]);
-        if (repeatAll.length === 0) {
-          setDone(true);
-        } else {
-          setQueue(repeatAll);
-          setIndex(0);
-        }
-      } else {
-        setIndex(nextIndex);
-      }
+        const repeatAll = shuffle([...(result==="nope"?[]:nope), ...(result==="almost"?[]:almost), ...repeat]);
+        if (repeatAll.length === 0) { setDone(true); }
+        else { setQueue(repeatAll); setIndex(0); }
+      } else { setIndex(nextIndex); }
     }, 180);
   }
 
   function restart() {
     const fresh = getCards();
-    setCards(fresh);
-    setIndex(0);
-    setFlipped(false);
+    setCards(fresh); setIndex(0); setFlipped(false);
     setKnown([]); setAlmost([]); setNope([]);
-    setQueue(null);
-    setDone(false);
+    setQueue(null); setDone(false);
   }
 
-  const frontWord = direction === "de" ? card?.de : card?.en;
-  const backWord  = direction === "de" ? card?.en : card?.de;
-  const frontLang = direction === "de" ? "Deutsch" : "English";
-  const backLang  = direction === "de" ? "English" : "Deutsch";
-
-  const passNum = queue ? 2 : 1;
-
   if (done) {
-    const pct = Math.round((known.length / (known.length + almost.length + nope.length + 1e-9)) * 100);
+    const pct = Math.round((known.length / Math.max(known.length + almost.length + nope.length, 1)) * 100);
     return (
       <div style={{ ...S.page, background: colors.bg }}>
         <div style={S.summaryWrap}>
@@ -306,16 +595,12 @@ function FlashcardMode({ level, colors, onBack, usedKeys }) {
             {[["✅ Know it", known.length], ["🌀 Almost", almost.length], ["❌ Nope", nope.length]].map(([label,val]) => (
               <div key={label} style={{ ...S.statBox, borderColor: colors.soft }}>
                 <span style={{ ...S.statNum, color: colors.accent }}>{val}</span>
-                <span style={{ ...S.statLabel }}>{label}</span>
+                <span style={S.statLabel}>{label}</span>
               </div>
             ))}
           </div>
-          <button onClick={restart} style={{ ...S.btn, background: colors.accent, marginBottom: 12 }}>
-            🔀 New Deck
-          </button>
-          <button onClick={onBack} style={{ ...S.btnOutline, borderColor: colors.accent, color: colors.accent }}>
-            ← Back
-          </button>
+          <button onClick={restart} style={{ ...S.btn, background: colors.accent, marginBottom:12 }}>🔀 New Deck</button>
+          <button onClick={onBack}  style={{ ...S.btnOutline, borderColor: colors.accent, color: colors.accent }}>← Back</button>
         </div>
       </div>
     );
@@ -323,73 +608,47 @@ function FlashcardMode({ level, colors, onBack, usedKeys }) {
 
   return (
     <div style={{ ...S.page, background: colors.bg }}>
-      {/* Header */}
       <div style={S.header}>
         <button onClick={onBack} style={{ ...S.backBtn, color: colors.accent }}>← Back</button>
         <span style={{ ...S.lvlPill, background: colors.badge }}>{level}</span>
         <span style={{ ...S.roundLabel, color: colors.text }}>
-          {queue ? `Repeat pass · ${index+1}/${total}` : `Card ${index+1} / ${total}`}
+          {queue ? `Repeat · ${index+1}/${total}` : `Card ${index+1} / ${total}`}
         </span>
       </div>
-
-      {/* Progress */}
       <div style={S.progressOuter}>
-        <div style={{ ...S.progressInner, width:`${((index)/total)*100}%`, background: colors.badge }} />
+        <div style={{ ...S.progressInner, width:`${(index/total)*100}%`, background: colors.badge }} />
       </div>
-
-      {/* Direction toggle */}
       <div style={S.fcToggleRow}>
         <span style={{ ...S.fcToggleLabel, color: colors.text }}>Show:</span>
-        <button
-          onClick={() => { setDirection("de"); setFlipped(false); }}
-          style={{ ...S.fcToggleBtn, background: direction==="de" ? colors.accent : "#fff",
-            color: direction==="de" ? "#fff" : colors.text, borderColor: colors.accent }}>
-          DE → EN
-        </button>
-        <button
-          onClick={() => { setDirection("en"); setFlipped(false); }}
-          style={{ ...S.fcToggleBtn, background: direction==="en" ? colors.accent : "#fff",
-            color: direction==="en" ? "#fff" : colors.text, borderColor: colors.accent }}>
-          EN → DE
-        </button>
+        {["de","en"].map(d => (
+          <button key={d} onClick={() => { setDirection(d); setFlipped(false); }}
+            style={{ ...S.fcToggleBtn, background: direction===d ? colors.accent : "#fff",
+              color: direction===d ? "#fff" : colors.text, borderColor: colors.accent }}>
+            {d==="de" ? "DE → EN" : "EN → DE"}
+          </button>
+        ))}
       </div>
-
-      {/* Card */}
       <div style={S.fcScene} onClick={flip}>
-        <div style={{
-          ...S.fcCard,
-          borderColor: colors.soft,
-          boxShadow: `0 8px 32px ${colors.accent}22`,
-          transform: isFlipping ? "scale(0.96)" : "scale(1)",
-          transition: "transform 0.15s ease",
-        }}>
+        <div style={{ ...S.fcCard, borderColor: colors.soft,
+          boxShadow:`0 8px 32px ${colors.accent}22`,
+          transform: isFlipping ? "scale(0.96)" : "scale(1)", transition:"transform 0.15s ease" }}>
           <div style={{ ...S.fcLangBadge, background: flipped ? colors.badge : colors.accent }}>
             {flipped ? backLang : frontLang}
           </div>
-          <div style={{ ...S.fcWord, color: colors.accent }}>
-            {flipped ? backWord : frontWord}
-          </div>
-          {!flipped && (
-            <div style={{ ...S.fcHint, color: colors.text }}>Tap to reveal</div>
-          )}
-          {flipped && (
-            <div style={{ ...S.fcHint, color: colors.text }}>How well did you know it?</div>
-          )}
+          <div style={{ ...S.fcWord, color: colors.accent }}>{flipped ? backWord : frontWord}</div>
+          <div style={S.fcHint}>{flipped ? "How well did you know it?" : "Tap to reveal"}</div>
         </div>
       </div>
-
-      {/* Rating buttons — only shown after flip */}
       {flipped ? (
         <div style={S.fcRatingRow}>
-          <button onClick={() => rate("nope")} style={{ ...S.fcRateBtn, background:"#fef2f2", borderColor:"#fca5a5", color:"#991b1b" }}>
-            ❌<br/><span style={S.fcRateLabel}>Nope</span>
-          </button>
-          <button onClick={() => rate("almost")} style={{ ...S.fcRateBtn, background:"#fffbeb", borderColor:"#fcd34d", color:"#92400e" }}>
-            🌀<br/><span style={S.fcRateLabel}>Almost</span>
-          </button>
-          <button onClick={() => rate("know")} style={{ ...S.fcRateBtn, background:"#f0fdf4", borderColor:"#86efac", color:"#166534" }}>
-            ✅<br/><span style={S.fcRateLabel}>Know it!</span>
-          </button>
+          {[["nope","❌","Nope","#fef2f2","#fca5a5","#991b1b"],
+            ["almost","🌀","Almost","#fffbeb","#fcd34d","#92400e"],
+            ["know","✅","Know it!","#f0fdf4","#86efac","#166534"]].map(([r,icon,label,bg,bc,tc]) => (
+            <button key={r} onClick={() => rate(r)}
+              style={{ ...S.fcRateBtn, background:bg, borderColor:bc, color:tc }}>
+              {icon}<br/><span style={S.fcRateLabel}>{label}</span>
+            </button>
+          ))}
         </div>
       ) : (
         <div style={S.fcRatingRow}>
@@ -398,18 +657,16 @@ function FlashcardMode({ level, colors, onBack, usedKeys }) {
           </button>
         </div>
       )}
-
-      {/* Legend */}
       <div style={{ ...S.fcLegend, color: colors.text }}>
         ✅ {known.length} &nbsp;·&nbsp; 🌀 {almost.length} &nbsp;·&nbsp; ❌ {nope.length}
-        {queue && <span style={{ marginLeft:12, fontStyle:"italic" }}>Repeat pass — {total} cards to review</span>}
+        {queue && <span style={{ marginLeft:12, fontStyle:"italic" }}>Repeat pass</span>}
       </div>
     </div>
   );
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// MATCHING GAME COMPONENT
+// MATCHING GAME
 // ═══════════════════════════════════════════════════════════════════════════════
 function MatchingGame({ level, colors, onBack, usedKeys }) {
   const pool = VOCAB_POOL[level];
@@ -424,24 +681,24 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
   }
 
   const [sessionWords]  = useState(() => getThirty());
-  const [queue, setQueue]           = useState(() => shuffle([...sessionWords]));
+  const [queue, setQueue]             = useState(() => shuffle([...sessionWords]));
   const [mistakePool, setMistakePool] = useState([]);
-  const [round, setRound]           = useState(() => buildRound(shuffle([...sessionWords])));
-  const [selectedDe, setSelectedDe] = useState(null);
-  const [selectedEn, setSelectedEn] = useState(null);
-  const [matched, setMatched]       = useState([]);
-  const [wrongFlash, setWrongFlash] = useState([]);
+  const [round, setRound]             = useState(() => buildRound(shuffle([...sessionWords])));
+  const [selectedDe, setSelectedDe]   = useState(null);
+  const [selectedEn, setSelectedEn]   = useState(null);
+  const [matched, setMatched]         = useState([]);
+  const [wrongFlash, setWrongFlash]   = useState([]);
   const [roundResults, setRoundResults] = useState([]);
-  const [roundDone, setRoundDone]   = useState(false);
+  const [roundDone, setRoundDone]     = useState(false);
   const [totalCorrect, setTotalCorrect]   = useState(0);
   const [totalAttempts, setTotalAttempts] = useState(0);
   const [completedWords, setCompletedWords] = useState([]);
-  const [done, setDone]             = useState(false);
+  const [done, setDone]               = useState(false);
 
   function launchRound(q, mistakes) {
-    const mistakeSample = mistakes.slice(0, 3);
-    const remaining = q.filter(w => !mistakeSample.find(m => m.de === w.de));
-    const p = [...mistakeSample, ...remaining].slice(0, 10);
+    const ms = mistakes.slice(0, 3);
+    const rem = q.filter(w => !ms.find(m => m.de === w.de));
+    const p = [...ms, ...rem].slice(0, 10);
     setRound(buildRound(p));
     setSelectedDe(null); setSelectedEn(null);
     setMatched([]); setWrongFlash([]);
@@ -470,26 +727,18 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
     const wrongDe    = roundResults.filter(r => !r.correct).map(r => r.de);
     const wrongWords = round.words.filter(w => wrongDe.includes(w.de));
     const correctDe  = round.words.filter(w => !wrongDe.includes(w.de)).map(w => w.de);
-    const newQueue   = queue.filter(w => !correctDe.includes(w.de));
-    const newCompleted = [...completedWords, ...round.words.filter(w => !wrongDe.includes(w.de))];
-    const newMistakes  = [...new Map([...mistakePool, ...wrongWords].map(w=>[w.de,w])).values()];
-    setQueue(newQueue); setCompletedWords(newCompleted); setMistakePool(newMistakes);
-    if (newQueue.length === 0 && newMistakes.length === 0) setDone(true);
-    else launchRound(newQueue, newMistakes);
+    const nq = queue.filter(w => !correctDe.includes(w.de));
+    const nc = [...completedWords, ...round.words.filter(w => !wrongDe.includes(w.de))];
+    const nm = [...new Map([...mistakePool, ...wrongWords].map(w=>[w.de,w])).values()];
+    setQueue(nq); setCompletedWords(nc); setMistakePool(nm);
+    if (nq.length === 0 && nm.length === 0) setDone(true);
+    else launchRound(nq, nm);
   }
 
-  const getDeState = word => {
-    if (matched.includes(word)) return "matched";
-    if (wrongFlash.includes(word)) return "wrong";
-    if (selectedDe === word) return "selected";
-    return "idle";
-  };
-  const getEnState = word => {
-    const parentDe = round?.words.find(w => w.en === word)?.de;
-    if (matched.includes(parentDe)) return "matched";
-    if (wrongFlash.includes(word)) return "wrong";
-    if (selectedEn === word) return "selected";
-    return "idle";
+  const getDeState = w => matched.includes(w) ? "matched" : wrongFlash.includes(w) ? "wrong" : selectedDe===w ? "selected" : "idle";
+  const getEnState = w => {
+    const p = round?.words.find(x => x.en===w)?.de;
+    return matched.includes(p) ? "matched" : wrongFlash.includes(w) ? "wrong" : selectedEn===w ? "selected" : "idle";
   };
 
   const progress = (completedWords.length / sessionWords.length) * 100;
@@ -511,7 +760,7 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
               </div>
             ))}
           </div>
-          <button onClick={onBack} style={{ ...S.btn, background: colors.accent, marginBottom:12 }}>← Back to Menu</button>
+          <button onClick={onBack} style={{ ...S.btn, background: colors.accent }}>← Back to Menu</button>
         </div>
       </div>
     );
@@ -528,7 +777,6 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
         <div style={{ ...S.progressInner, width:`${progress}%`, background: colors.badge }} />
       </div>
       <div style={{ ...S.progressText, color: colors.text }}>{completedWords.length} / {sessionWords.length} mastered</div>
-
       {!roundDone ? (
         <>
           <p style={{ ...S.instruction, color: colors.text }}>Tap a German word, then its English match</p>
@@ -561,7 +809,7 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
           <h3 style={{ ...S.roundDoneTitle, color: colors.accent }}>Round Complete!</h3>
           <div style={S.resultsList}>
             {round?.words.map(w => {
-              const wasWrong = roundResults.some(r => r.de === w.de && !r.correct);
+              const wasWrong = roundResults.some(r => r.de===w.de && !r.correct);
               return (
                 <div key={w.de} style={{ ...S.resultRow, borderColor: colors.soft }}>
                   <span style={S.resultDe}>{w.de}</span>
@@ -583,27 +831,35 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// MODE SELECTION SCREEN
+// MODE SELECT
 // ═══════════════════════════════════════════════════════════════════════════════
 function ModeSelect({ level, colors, onMode, onBack }) {
   const modes = [
-    { id:"flashcard", icon:"🃏", title:"Flashcards", desc:"Flip cards, self-rate, and repeat until you know them all" },
-    { id:"match",     icon:"🔗", title:"Word Match",  desc:"Connect German words to their English translations in pairs" },
+    { id:"flashcard", icon:"🃏", title:"Flashcards",    desc:"Flip cards, self-rate, repeat until mastered" },
+    { id:"match",     icon:"🔗", title:"Word Match",    desc:"Connect German words to English translations" },
+    { id:"gender",    icon:"🏷️", title:"Gender Trainer", desc:"Master der / die / das with instant feedback" },
   ];
   return (
     <div style={{ ...S.page, background: colors.bg }}>
       <div style={S.homeWrap}>
         <button onClick={onBack} style={{ ...S.backBtn, color: colors.accent, marginBottom:16 }}>← Back</button>
         <span style={{ ...S.lvlPill, background: colors.badge, display:"inline-block", marginBottom:12 }}>{level}</span>
-        <h2 style={{ ...S.homeTitle, fontSize:30, marginBottom:8 }}>Choose a mode</h2>
-        <p style={{ ...S.homeSub, fontSize:14, marginBottom:28 }}>How would you like to practise?</p>
+        <h2 style={{ ...S.homeTitle, fontSize:28, marginBottom:6 }}>Choose a mode</h2>
+        <p style={{ ...S.homeSub, fontSize:14, marginBottom:24 }}>How would you like to practise?</p>
         <div style={S.levelGrid}>
           {modes.map(m => (
             <button key={m.id} onClick={() => onMode(m.id)}
-              style={{ ...S.levelCard, background:"#fff", borderColor: colors.soft, flexDirection:"column", alignItems:"flex-start", padding:"20px 22px", gap:8 }}>
-              <span style={{ fontSize:32 }}>{m.icon}</span>
-              <span style={{ ...S.lvlName, color: colors.accent, fontSize:18 }}>{m.title}</span>
-              <span style={{ ...S.lvlDesc, color: colors.text, fontSize:13, opacity:1 }}>{m.desc}</span>
+              style={{ ...S.levelCard, background:"#fff", borderColor: colors.soft,
+                flexDirection:"column", alignItems:"flex-start", padding:"18px 20px", gap:6 }}>
+              <span style={{ fontSize:28 }}>{m.icon}</span>
+              <span style={{ ...S.lvlName, color: colors.accent, fontSize:17 }}>{m.title}</span>
+              <span style={{ fontSize:13, color: colors.text, opacity:0.85, textAlign:"left" }}>{m.desc}</span>
+              {m.id === "gender" && (
+                <span style={{ fontSize:11, background: colors.soft, color: colors.accent,
+                  padding:"2px 10px", borderRadius:20, fontWeight:700, marginTop:2 }}>
+                  ✨ New
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -616,7 +872,7 @@ function ModeSelect({ level, colors, onMode, onBack }) {
 // ROOT APP
 // ═══════════════════════════════════════════════════════════════════════════════
 export default function GermanGame() {
-  const [screen, setScreen] = useState("home"); // home | modeselect | flashcard | match
+  const [screen, setScreen] = useState("home");
   const [level, setLevel]   = useState(null);
   const usedKeys = useRef({ A1: new Set(), A2: new Set(), B1: new Set() });
   const colors = level ? LEVEL_COLORS[level] : LEVEL_COLORS.A1;
@@ -646,7 +902,7 @@ export default function GermanGame() {
               );
             })}
           </div>
-          <p style={S.homeHint}>270 words per level · 2 game modes · no repeats until all seen</p>
+          <p style={S.homeHint}>270 words per level · 3 game modes · no repeats until all seen</p>
         </div>
       </div>
     );
@@ -654,8 +910,11 @@ export default function GermanGame() {
 
   if (screen === "modeselect") {
     return <ModeSelect level={level} colors={colors}
-      onMode={mode => setScreen(mode === "flashcard" ? "flashcard" : "match")}
-      onBack={() => setScreen("home")} />;
+      onMode={m => setScreen(m)} onBack={() => setScreen("home")} />;
+  }
+
+  if (screen === "gender") {
+    return <GenderTrainer onBack={() => setScreen("modeselect")} />;
   }
 
   if (screen === "flashcard") {
@@ -667,22 +926,16 @@ export default function GermanGame() {
     usedKeys={usedKeys} onBack={() => setScreen("modeselect")} />;
 }
 
-// ─── WORD BUTTON STYLE ────────────────────────────────────────────────────────
 function wordBtn(state, colors) {
-  const base = {
-    display:"block", width:"100%", textAlign:"center",
-    padding:"9px 6px", marginBottom:7, borderRadius:10,
-    fontSize:13, fontFamily:"Georgia, serif",
-    cursor:"pointer", transition:"all 0.15s ease",
-    border:"2px solid", fontWeight:600, lineHeight:1.3,
-  };
+  const base = { display:"block", width:"100%", textAlign:"center", padding:"9px 6px",
+    marginBottom:7, borderRadius:10, fontSize:13, fontFamily:"Georgia, serif",
+    cursor:"pointer", transition:"all 0.15s ease", border:"2px solid", fontWeight:600, lineHeight:1.3 };
   if (state==="matched")  return { ...base, background:"#f0fdf4", borderColor:"#86efac", color:"#166534", cursor:"default", opacity:0.5 };
   if (state==="wrong")    return { ...base, background:"#fef2f2", borderColor:"#fca5a5", color:"#991b1b", transform:"scale(0.97)" };
   if (state==="selected") return { ...base, background:colors.accent, borderColor:colors.accent, color:"#fff", transform:"scale(1.04)", boxShadow:`0 4px 14px ${colors.accent}44` };
   return { ...base, background:"#fff", borderColor:colors.soft, color:colors.text };
 }
 
-// ─── SHARED STYLES ────────────────────────────────────────────────────────────
 const S = {
   page:           { minHeight:"100vh", fontFamily:"Georgia, serif", paddingBottom:40 },
   homeWrap:       { maxWidth:460, margin:"0 auto", padding:"44px 24px", textAlign:"center" },
@@ -727,20 +980,19 @@ const S = {
   statBox:        { flex:1, border:"2px solid", borderRadius:12, padding:"16px 8px", background:"#fff" },
   statNum:        { display:"block", fontSize:26, fontWeight:800 },
   statLabel:      { display:"block", fontSize:11, color:"#666", marginTop:2 },
-  // Flashcard-specific
   fcScene:        { display:"flex", justifyContent:"center", padding:"12px 20px 8px", cursor:"pointer" },
   fcCard:         { width:"100%", maxWidth:400, minHeight:220, border:"2px solid", borderRadius:20,
                     background:"#fff", display:"flex", flexDirection:"column", alignItems:"center",
                     justifyContent:"center", padding:"28px 24px", gap:12, userSelect:"none" },
-  fcLangBadge:    { color:"#fff", fontWeight:700, fontSize:12, padding:"3px 14px", borderRadius:20, letterSpacing:"0.5px" },
+  fcLangBadge:    { color:"#fff", fontWeight:700, fontSize:12, padding:"3px 14px", borderRadius:20 },
   fcWord:         { fontSize:36, fontWeight:700, textAlign:"center", letterSpacing:"-0.5px", lineHeight:1.2 },
   fcHint:         { fontSize:13, fontStyle:"italic", opacity:0.6 },
   fcToggleRow:    { display:"flex", alignItems:"center", gap:8, justifyContent:"center", padding:"8px 20px 0" },
   fcToggleLabel:  { fontSize:13, fontWeight:600 },
   fcToggleBtn:    { border:"2px solid", borderRadius:20, padding:"5px 16px", fontSize:13, fontWeight:700, cursor:"pointer", fontFamily:"Georgia, serif" },
   fcRatingRow:    { display:"flex", gap:10, padding:"12px 20px 4px", justifyContent:"center" },
-  fcRateBtn:      { flex:1, maxWidth:110, border:"2px solid", borderRadius:14, padding:"12px 4px", fontSize:20, fontWeight:700,
-                    cursor:"pointer", fontFamily:"Georgia, serif", lineHeight:1.4 },
+  fcRateBtn:      { flex:1, maxWidth:110, border:"2px solid", borderRadius:14, padding:"12px 4px", fontSize:20,
+                    fontWeight:700, cursor:"pointer", fontFamily:"Georgia, serif", lineHeight:1.4 },
   fcRateLabel:    { fontSize:12, fontWeight:600, display:"block" },
   fcLegend:       { textAlign:"center", fontSize:13, padding:"8px 20px", opacity:0.75 },
 };
