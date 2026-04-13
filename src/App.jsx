@@ -674,7 +674,9 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
 
   function getThirty() {
     let unseen = pool.filter(w => !used.has(w.de));
-    if (unseen.length < 30) { used.clear(); unseen = [...pool]; }
+    // Only reset once the pool is fully exhausted (0 unseen left)
+    if (unseen.length === 0) { used.clear(); unseen = [...pool]; }
+    // Take up to 30 — if fewer remain, take all of them
     const thirty = shuffle(unseen).slice(0, 30);
     thirty.forEach(w => used.add(w.de));
     return thirty;
@@ -727,9 +729,16 @@ function MatchingGame({ level, colors, onBack, usedKeys }) {
     const wrongDe    = roundResults.filter(r => !r.correct).map(r => r.de);
     const wrongWords = round.words.filter(w => wrongDe.includes(w.de));
     const correctDe  = round.words.filter(w => !wrongDe.includes(w.de)).map(w => w.de);
+
+    // Remove correctly-answered words from both queue AND mistakePool
     const nq = queue.filter(w => !correctDe.includes(w.de));
     const nc = [...completedWords, ...round.words.filter(w => !wrongDe.includes(w.de))];
-    const nm = [...new Map([...mistakePool, ...wrongWords].map(w=>[w.de,w])).values()];
+    // Keep only words still wrong: existing mistakes minus now-correct ones, plus any new wrong ones
+    const nm = [
+      ...mistakePool.filter(w => !correctDe.includes(w.de)), // remove fixed mistakes
+      ...wrongWords.filter(w => !mistakePool.find(m => m.de === w.de)), // add new mistakes (no dupes)
+    ];
+
     setQueue(nq); setCompletedWords(nc); setMistakePool(nm);
     if (nq.length === 0 && nm.length === 0) setDone(true);
     else launchRound(nq, nm);
@@ -889,15 +898,34 @@ export default function GermanGame() {
               const c = LEVEL_COLORS[lvl];
               const meta = { A1:["Beginner","Everyday basics"], A2:["Elementary","Common situations"], B1:["Intermediate","Abstract concepts"] };
               const seen = [...usedKeys.current[lvl]].filter(k => !k.startsWith("fc_")).length;
+              const pct  = Math.round((seen / 270) * 100);
               return (
                 <button key={lvl} onClick={() => { setLevel(lvl); setScreen("modeselect"); }}
-                  style={{ ...S.levelCard, background: c.bg, borderColor: c.soft }}>
-                  <span style={{ ...S.lvlBadge, background: c.badge }}>{lvl}</span>
-                  <div style={S.lvlTextBlock}>
-                    <span style={{ ...S.lvlName, color: c.text }}>{lvl} — {meta[lvl][0]}</span>
-                    <span style={{ ...S.lvlDesc, color: c.accent }}>{meta[lvl][1]}</span>
+                  style={{ ...S.levelCard, background: c.bg, borderColor: c.soft,
+                    flexDirection:"column", alignItems:"stretch", padding:"16px 18px", gap:0 }}>
+                  {/* Top row: badge + name + count */}
+                  <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:6 }}>
+                    <span style={{ ...S.lvlBadge, background: c.badge }}>{lvl}</span>
+                    <div style={S.lvlTextBlock}>
+                      <span style={{ ...S.lvlName, color: c.text }}>{lvl} — {meta[lvl][0]}</span>
+                      <span style={{ ...S.lvlDesc, color: c.accent }}>{meta[lvl][1]}</span>
+                    </div>
+                    <span style={{ ...S.lvlCount, color: c.text, flexShrink:0 }}>{seen}/270</span>
                   </div>
-                  <span style={{ ...S.lvlCount, color: c.text }}>{seen}/270 seen</span>
+                  {/* Progress bar */}
+                  <div style={{ height:7, background:"rgba(0,0,0,0.08)", borderRadius:4, overflow:"hidden" }}>
+                    <div style={{
+                      height:"100%", borderRadius:4,
+                      width:`${pct}%`,
+                      background: c.badge,
+                      transition:"width 0.6s ease",
+                      minWidth: seen > 0 ? 6 : 0,
+                    }} />
+                  </div>
+                  {/* Percent label */}
+                  <div style={{ fontSize:11, color: c.accent, textAlign:"right", marginTop:3, fontWeight:600 }}>
+                    {seen === 0 ? "Not started" : seen === 270 ? "🎉 All words seen!" : `${pct}% explored`}
+                  </div>
                 </button>
               );
             })}
